@@ -6,7 +6,7 @@
 /*   By: icruces- < icruces-@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:49:05 by icruces-          #+#    #+#             */
-/*   Updated: 2024/01/02 19:16:06 by icruces-         ###   ########.fr       */
+/*   Updated: 2024/01/10 20:33:08 by icruces-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,12 @@ static void ft_putnbr_base_fd(unsigned long n, char *base, int fd, int *len)
 }
 
 void	ft_putstr(char const *str, int *len)
-{
+{	
+	if (!str)
+	{
+		*len += write(1, "(null)", 6);
+		return ;
+	}
 	while (*str)
 	{
 		*len += write(1, str, 1);
@@ -82,13 +87,17 @@ void	ft_type(char const *str, int *len, va_list ap)
 	else if (*str == 'c')
 		ft_putchar(va_arg(ap, int), len);
 	else if (*str == 'p')
-		ft_putchar(va_arg(ap, unsigned long), len);
+		ft_putnbr_base_fd(va_arg(ap, unsigned long), "0123456789abcdef", 1, len);
 	else if (*str == 'd')
 		ft_putnbr_fd(va_arg(ap, int), 1, len);
 	else if (*str == 'i')
 		ft_putnbr_fd(va_arg(ap, int), 1, len);
 	else if (*str == 'u')
 		ft_putnbr_fd(va_arg(ap, int), 1, len);
+	else if (*str == 'x')
+		ft_putnbr_base_fd(va_arg(ap, unsigned int), "0123456789abcdef", 1, len);
+	else if (*str == 'X')
+		ft_putnbr_base_fd(va_arg(ap, unsigned int), "0123456789ABCDEF", 1, len);
 	else if (*str == '%')
 		ft_putchar(*str, len);
 }

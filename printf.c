@@ -6,7 +6,7 @@
 /*   By: icruces- < icruces-@student.42malaga.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:05:58 by icruces-          #+#    #+#             */
-/*   Updated: 2023/12/07 20:54:53 by icruces-         ###   ########.fr       */
+/*   Updated: 2024/01/10 20:32:53 by icruces-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,13 @@ int	ft_printf(char const *str, ...)
 	return (len);
 }
 
-int	main(void)
+ int	main(void)
 {
 	int	len;
+	char *str = NULL;
 
-	len = ft_printf("printing  c: %c, s: %s\n", "helllo", "12", -12);
-	/* printf("printing  c: %c, s: %s\n", 93, "12"); */
+	//ft_printf("%d",ft_printf("printing  c: %s, s: %s\n", str, "12"));
+	ft_printf("%d",ft_printf("%s\n", str));
+	//printf("printing  c: %s, s: %s\n", str, "12");
 }
+ 
