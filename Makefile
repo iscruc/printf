@@ -6,11 +6,11 @@
 #    By: icruces- < icruces-@student.42malaga.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 17:06:04 by icruces-          #+#    #+#              #
-#    Updated: 2023/12/07 18:12:25 by icruces-         ###   ########.fr        #
+#    Updated: 2024/01/10 19:38:42 by icruces-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = printf.h  printf.c printf_utils.c 
+SRC = printf.c printf_utils.c 
 
 OBJS = $(SRC:.c=.o)
 
@@ -29,4 +29,4 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re:	fclean all 
+re:	fclean all
